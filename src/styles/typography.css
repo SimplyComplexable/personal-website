@@ -1,0 +1,34 @@
+main {
+  @apply p-8;
+}
+
+
+* {
+  @apply font-primary;
+}
+
+h1 {
+  @apply text-xl leading-normal max-w-sm font-thin uppercase;
+  @apply md:text-3xl;
+}
+
+h2 {
+  @apply text-lg mb-16 leading-normal font-normal;
+  @apply md:text-2xl;
+}
+
+h3 {
+  @apply font-light text-md leading-normal max-w-xs;
+  @apply md:text-xl;
+}
+
+p {
+  @apply md:text-md;
+}
+
+section {
+  @apply border-gray-500 px-5 pt-24 pb-14 mb-20 max-w-loose mx-auto;
+  @apply sm:max-w-normal pb-20 mb-28;
+  @apply md:max-w-loose pb-24 mb-36;
+  @apply lg:max-w-extra-loose pb-28 mb-40;
+}
