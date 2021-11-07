@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import React from 'react';
 import Hero, { HeroProps } from '@components/Hero';
 import ListSection, { ListSectionProps } from '@components/ListSection';
@@ -85,6 +86,11 @@ export interface HomeProps {
 
 const Home = ({ lists = [], hero }: HomeProps) => (
   <>
+    <Head>
+      <title>Zack Sunderland</title>
+      <link rel="icon" type="image/png" href="/images/favicon.png" />
+      <meta name="description" content={hero.description} />
+    </Head>
     <Hero {...hero} />
     {lists.map(list => (
       <ListSection key={list.title} {...list} />
