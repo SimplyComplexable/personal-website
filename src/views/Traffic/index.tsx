@@ -66,7 +66,7 @@ const Traffic = ({}: TrafficProps) => {
   return (
     <div>
       {hour}: {driverCount}
-      <div className={style.container} style={{ '--rows': 2 }}>
+      <div className={style.container}>
         {repeat(9, (_, index) => (
           <div key={index} />
         ))}

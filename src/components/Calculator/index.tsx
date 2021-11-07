@@ -9,7 +9,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', '-'];
 const operationsArray = ['/', 'x', '+', '-'];
 
 const Calculator = ({}: CalculatorProps) => {
-  const historyContainer = React.useRef();
+  const historyContainer = React.useRef<HTMLDivElement>(null);
   const [inputStr, setInputStr] = React.useState('');
   const [formulaArr, setFormulaArr] = React.useState([]);
 
@@ -58,6 +58,7 @@ const Calculator = ({}: CalculatorProps) => {
           ];
           return [
             ...newFormulaArray,
+            // @ts-ignore
             { operation, value: doTheMath(newFormulaArray.slice(-2)) },
             { value: '' },
           ];
@@ -79,7 +80,7 @@ const Calculator = ({}: CalculatorProps) => {
 
   React.useLayoutEffect(() => {
     if (historyContainer.current) {
-      historyContainer.current.scrollTop =
+      historyContainer.current!.scrollTop =
         historyContainer.current.scrollHeight;
     }
   }, [historyContainer, formulaArr]);
