@@ -13,7 +13,9 @@ export interface ListSectionProps {
 }
 
 const getClasses = (orientation: ListSectionProps['orientation']) =>
-  orientation === 'left' ? 'border-l-2 ext-left' : 'border-r-2 text-right';
+  orientation === 'left'
+    ? 'border-l-2 text-left pl-0'
+    : 'border-r-2 text-left pr-0';
 
 const ListSection = ({
   title,
@@ -21,11 +23,15 @@ const ListSection = ({
   orientation = 'left',
 }: ListSectionProps) => (
   <section className={getClasses(orientation)}>
-    <h2>{title}</h2>
-    <ul className="space-y-6 font-light">
+    <h2 className="pl-4">{title}</h2>
+    <ul className="space-y-6">
       {items.map(({ title, description }) => (
         <li key={title}>
-          <Slider title={title} description={description} />
+          <Slider
+            title={title}
+            description={description}
+            orientation={orientation}
+          />
         </li>
       ))}
     </ul>

@@ -1,0 +1,76 @@
+.calcContainer {
+  @apply grid gap-4 w-80 m-0 p-0 text-lg font-light;
+}
+
+.historyContainer {
+  @apply overflow-auto h-52;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.buttonsContainer {
+  @apply grid gap-2;
+  grid-template-columns: minmax(0, 3fr) minmax(0,1fr);
+
+  li {
+    @apply flex items-center;
+    &, button {
+      @apply w-full h-full;
+    }
+  }
+}
+
+.topContainer {
+  @apply border-gray-600 border-2;
+}
+
+.inputContainer {
+  @apply grid gap-2 w-full text-right;
+  grid-template-columns: 30px 1fr;
+  span {
+    @apply px-5 py-3;
+  }
+}
+
+.input {
+  @apply text-right px-5 py-3;
+  &:last-child {
+    grid-column: 2;
+  }
+}
+
+.numList {
+  @apply inline-grid grid-cols-3 gap-2;
+  li:last-child {
+    grid-column: 2;
+  }
+}
+
+.operationList {
+  @apply inline-grid grid-cols-1 gap-2;
+
+  height: 80%;
+}
+
+
+.history {
+  @apply bg-gray-200 grid content-end min-h-full;
+
+  li {
+    @apply text-right px-5 py-1;
+    &.operation {
+      @apply grid;
+      grid-template-columns: 30px 1fr;
+
+      &.result {
+        @apply border-t-2 border-gray-500;
+      }
+      span {
+        @apply flex justify-center;
+      }
+    }
+  }
+}

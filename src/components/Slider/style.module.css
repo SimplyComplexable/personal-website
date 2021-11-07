@@ -1,0 +1,112 @@
+.section {
+  @apply overflow-hidden px-0;
+}
+
+.article {
+  @apply grid grid-cols-2 cursor-pointer relative items-center;
+  width: 200%;
+
+  .content {
+    transition: transform 300ms ease-in-out;
+    transition-delay: 125ms;
+    &:first-child {
+      @apply pl-4;
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 20px;
+      align-items: center;
+      svg {
+        height: 1em;
+        position: relative;
+        top: -10%;
+
+        @media (min-width: 767px) {
+          display: none;
+        }
+      }
+    }
+    > p {
+      @apply pr-2;
+      max-height: 80vh;
+      overflow: auto;
+      transition: transform 300ms ease-in-out;
+      transition-delay: 0ms;
+    }
+  }
+  &.active .content {
+    transition-delay: 0ms;
+    > p {
+      transition-delay: 125ms;
+    }
+  }
+
+  &.left {
+    .content {
+      @apply pl-4;
+      transform: translateX(-100%);
+      display: grid;
+      justify-content: end;
+      &:first-child {
+        grid-column: 2;
+        h3 {
+          grid-area: 1/2;
+          justify-self: end;
+        }
+        svg {
+          grid-area: 1/1;
+          transform: rotate(180deg);
+        }
+      }
+      &:last-child {
+        @apply rounded-r-lg;
+        grid-area: 1 /1;
+      }
+      > p {
+        transform: translateX(-100%);
+      }
+    }
+
+    &.active .content {
+      transform: translateX(0);
+      > p {
+        transform: translateX(0);
+      }
+    }
+    @media (min-width: 767px) {
+      &:not(.active).hover .content:last-child {
+        transition-duration: 200ms;
+        transform: translateX(-95%);
+      }
+    }
+  }
+  &.right {
+    .content {
+      @apply pr-4;
+
+      &:last-child {
+        @apply rounded-l-lg;
+      }
+      > p {
+        transform: translateX(100%);
+      }
+    }
+
+    &.active .content {
+      transform: translateX(-100%);
+      > p {
+        transform: translateX(0);
+      }
+    }
+    @media (min-width: 767px) {
+      &:not(.active).hover .content:last-child {
+        transition-duration: 200ms;
+        transform: translateX(-5%);
+      }
+    }
+  }
+}
+
+.content:last-child {
+  height: 100%;
+  @apply bg-gray-900 text-white pl-12 pr-4 py-10 text-left;
+}

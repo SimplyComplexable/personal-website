@@ -19,15 +19,15 @@ h2 {
 
 h3 {
   @apply font-light text-md leading-normal max-w-xs;
-  @apply md:text-xl;
+  @apply md:text-xl max-w-md;
 }
 
 p {
-  @apply md:text-md;
+  @apply md:text-md font-light;
 }
 
 section {
-  @apply border-gray-500 px-5 pt-24 pb-14 mb-20 max-w-loose mx-auto;
+  @apply border-gray-900 px-5 pt-24 pb-14 mb-20 max-w-loose mx-auto;
   @apply sm:max-w-normal pb-20 mb-28;
   @apply md:max-w-loose pb-24 mb-36;
   @apply lg:max-w-extra-loose pb-28 mb-40;

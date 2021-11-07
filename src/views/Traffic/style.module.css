@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  height: 90vh;
+  grid-template-areas:
+    'a b c'
+    'd d d'
+    'e f g';
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-rows: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 2fr);
+  div {
+    border-color: black;
+  }
+  div:first-child {
+    border-width: 0 2px 2px 0;
+  }
+  div:nth-child(3) {
+    border-width: 0 0 2px 2px;
+  }
+  div:nth-child(7) {
+    border-width: 2px 2px 0 0;
+  }
+  div:nth-child(9) {
+    border-width: 2px 0 0 2px;
+  }
+}

@@ -1,16 +1,17 @@
 import Slider from '@components/Slider';
 import React from 'react';
 
-export interface HeroProps {}
+export interface HeroProps {
+  title: string;
+  name: string;
+  description: string;
+}
 
-const Hero = ({}: HeroProps) => (
-  <section className="border-l-2">
+const Hero = ({ name, title, description }: HeroProps) => (
+  <section className="border-l-2 pl-0">
     <header className="">
-      <h1 className="mb-24">Zack Sunderland</h1>
-      <Slider
-        title="Software Developer"
-        description="I’m a full-stack software engineer, with a love for all things JavaScript. I’ve spent the last few years building up my front-end skills using React.js in combination with Next.js, Express.js and a host of other OSS packages. Before that I worked mostly on back-ends, using Java and before that with PHP. At the end of the day, I just love solving interesting problems with well-thought-out and intuitive solutions! So what problems can we solve together?"
-      />
+      <h1 className="mb-24 pl-4">{name}</h1>
+      <Slider title={title} description={description} />
     </header>
   </section>
 );
